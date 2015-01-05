@@ -1,7 +1,5 @@
 package ch.n1b.vector;
 
-import com.sk89q.worldedit.Vector;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Thomas
@@ -30,13 +28,5 @@ public final class Vec3D {
 
     public final Vec3D mult(int factor){
         return new Vec3D(X*factor,Y*factor,Z*factor);
-    }
-
-    public static final Vec3D fromVector(Vector v){
-        return new Vec3D(v.getBlockX(),v.getBlockY(),v.getBlockZ());
-    }
-
-    public final Vector toVector(){
-        return new Vector(X,Y,Z);
     }
 }

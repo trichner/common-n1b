@@ -39,4 +39,24 @@ public final class Vec2D {
     public String toString() {
         return "["+X+"/"+Y+"]";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vec2D vec2D = (Vec2D) o;
+
+        if (X != vec2D.X) return false;
+        if (Y != vec2D.Y) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = X;
+        result = 31 * result + Y;
+        return result;
+    }
 }

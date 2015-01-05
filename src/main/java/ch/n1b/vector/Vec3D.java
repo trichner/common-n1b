@@ -29,4 +29,26 @@ public final class Vec3D {
     public final Vec3D mult(int factor){
         return new Vec3D(X*factor,Y*factor,Z*factor);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vec3D vec3D = (Vec3D) o;
+
+        if (X != vec3D.X) return false;
+        if (Y != vec3D.Y) return false;
+        if (Z != vec3D.Z) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = X;
+        result = 31 * result + Y;
+        result = 31 * result + Z;
+        return result;
+    }
 }

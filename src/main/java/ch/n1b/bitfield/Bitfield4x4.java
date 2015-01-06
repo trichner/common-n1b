@@ -100,4 +100,8 @@ public class Bitfield4x4 {
     public int hashCode() {
         return field;
     }
+
+    public int getField() {
+        return field;
+    }
 }

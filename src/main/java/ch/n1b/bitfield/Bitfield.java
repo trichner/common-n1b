@@ -58,19 +58,23 @@ public class Bitfield {
         return set(x, y, false);
     }
 
-    public Bitfield reduce(){
-        int offsetX = offset.X;
-        int offsetY = offset.Y;
-        while (isEmptyLeft()){
-            shiftLeft();
-            offsetX++;
+    public boolean reduce(){
+        if(!isEmpty()) {
+            int offsetX = offset.X;
+            int offsetY = offset.Y;
+            while (isEmptyLeft()) {
+                shiftLeft();
+                offsetX++;
+            }
+            while (isEmptyDown()) {
+                shiftDown();
+                offsetY++;
+            }
+            offset = new Vec2D(offsetX, offsetY);
+            return true;
+        }else {
+            return false;
         }
-        while (isEmptyDown()){
-            shiftDown();
-            offsetY++;
-        }
-        offset = new Vec2D(offsetX,offsetY);
-        return this;
     }
 
 
@@ -176,6 +180,19 @@ public class Bitfield {
             }
         }
         return this;
+    }
+
+    public boolean isEmpty(){
+        for (Bitfield8x8[] xfields : fields) {
+            if(xfields!=null) {
+                for (Bitfield8x8 yfields : xfields) {
+                    if (yfields!=null && yfields.isEmpty()){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     @Override

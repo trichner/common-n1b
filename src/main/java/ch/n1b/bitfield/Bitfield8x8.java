@@ -141,6 +141,10 @@ public class Bitfield8x8 {
         return this;
     }
 
+    public boolean isEmpty(){
+        return field==0;
+    }
+
     @Override
     public String toString() {
         return Bitfield8Utils.toString(field);

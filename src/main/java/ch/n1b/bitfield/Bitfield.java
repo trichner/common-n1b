@@ -58,7 +58,7 @@ public class Bitfield {
         return set(x, y, false);
     }
 
-    private Bitfield reduce(){
+    public Bitfield reduce(){
         int offsetX = offset.X;
         int offsetY = offset.Y;
         while (isEmptyLeft()){
@@ -74,7 +74,7 @@ public class Bitfield {
     }
 
 
-    private Bitfield4x4 cutConnected4x4(){
+    public Bitfield4x4 cut4x4(){
         //---- find first
         int offsetX = 0;
         for(;offsetX<SIZE*8;offsetX++){

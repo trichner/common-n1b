@@ -6,7 +6,7 @@
 
     <groupId>ch.n1b.common-n1b</groupId>
     <artifactId>common-n1b</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
 
 
     <build>
@@ -28,5 +28,13 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>

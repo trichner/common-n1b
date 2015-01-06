@@ -74,6 +74,11 @@ public class Bitfield4x4 {
         return  this;
     }
 
+    public Bitfield4x4 flipHorizontally(){
+        field = Bitfield4Utils.flipX(field);
+        return this;
+    }
+
     @Override
     public String toString() {
         return Bitfield4Utils.toString(field);

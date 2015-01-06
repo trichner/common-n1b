@@ -39,6 +39,8 @@ public class Bitfield4Utils {
                                            {BIT20, BIT21, BIT22, BIT23},
                                            {BIT30, BIT31, BIT32, BIT33}};
 
+
+
     final static short BORDER_L  = (short) (BIT00 | BIT10 | BIT20 | BIT30);
     final static short BORDER_R  = (short) (BIT03 | BIT13 | BIT23 | BIT33);
     final static short BORDER_U  = (short) (0xF << 12);
@@ -120,6 +122,15 @@ public class Bitfield4Utils {
      */
     final public static boolean isSet(short BIT, short BITFIELD){
         return (BIT & BITFIELD) != 0;
+    }
+
+    final public static short flipX(short BITFIELD){
+        short k1 = 0x5555;
+        short k2 = 0x3333;
+
+        BITFIELD = (short) (((BITFIELD >>> 1) & k1) + 2*(BITFIELD & k1));
+        BITFIELD = (short) (((BITFIELD >>> 2) & k2) + 4*(BITFIELD & k2));
+        return BITFIELD;
     }
 
     /**

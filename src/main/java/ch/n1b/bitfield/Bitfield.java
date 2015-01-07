@@ -92,7 +92,7 @@ public class Bitfield {
         grow(field8x8,4,0,offsetX);
         Bitfield4x4 cutout = field8x8.reduce();
 
-        Vec2D offset = cutout.getOffset().add(new Vec2D(offsetX,0));
+        Vec2D offset = cutout.getOffset().add(new Vec2D(offsetX,0)).add(this.offset);
         cutout.setOffset(offset);
 
         return cutout;

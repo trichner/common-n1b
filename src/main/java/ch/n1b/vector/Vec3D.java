@@ -30,6 +30,32 @@ public final class Vec3D {
         return new Vec3D(X*factor,Y*factor,Z*factor);
     }
 
+    public final Vec3D cross(Vec3D c){
+        return new Vec3D(Y*c.Z-Z*c.Y,Z*c.X-X*c.Z,X*c.Y-Y*c.Y);
+    }
+
+    public final Vec3D binary(){
+        int x=0,y=0,z=0;
+        if(X!=0) x = X/Math.abs(X);
+        if(Y!=0) y = Y/Math.abs(Y);
+        if(Z!=0) z = Z/Math.abs(Z);
+        return new Vec3D(x,y,z);
+    }
+
+    public final Vec3D norm2(){
+        int abs = abs();
+        return new Vec3D(X/abs,Y/abs,Z/abs);
+    }
+
+    public final int abs(){
+        return (int) Math.round(Math.sqrt(X*X+Y*Y+Z*Z));
+    }
+
+    @Override
+    public String toString() {
+        return "Vec3D[" + X + "/" + Y + "/" + Z + ']';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -19,6 +19,6 @@ public class BitField4x4Test {
         System.out.println(field);
         field.flipHorizontally();
         System.out.println(field);
-        Assert.assertEquals(EXPECTED,field);
+        Assert.assertEquals(EXPECTED,field.getField());
     }
 }

@@ -164,16 +164,18 @@ public class Bitfield {
 
     private Bitfield shiftDown(){
         for (Bitfield8x8[] field : fields) {
-            if(field[0]!=null){
-                field[0].shiftDown();
-            }
-            for (int y = 1; y < field.length; y++) {
-                if(field[y]!=null){
-                    long overflow = field[y].shiftDownOverflow();
-                    if(overflow!=0){
-                        Bitfield8x8 subfield = field[y];
-                        if(subfield != null){
-                            subfield.or(overflow);
+            if(field!=null) {
+                if (field[0] != null) {
+                    field[0].shiftDown();
+                }
+                for (int y = 1; y < field.length; y++) {
+                    if (field[y] != null) {
+                        long overflow = field[y].shiftDownOverflow();
+                        if (overflow != 0) {
+                            Bitfield8x8 subfield = field[y];
+                            if (subfield != null) {
+                                subfield.or(overflow);
+                            }
                         }
                     }
                 }

@@ -54,15 +54,13 @@ public class Bitfield8x8 {
     public Bitfield4x4 reduce(){
         //--- align
         int dx = 0, dy = 0;
-        if(field!=0) {
-            while ((field & Bitfield8Utils.BORDER_D) == 0) {
-                shiftDown();
-                dy++;
-            }
-            while ((field & Bitfield8Utils.BORDER_L) == 0) {
-                shiftLeft();
-                dx++;
-            }
+        while (field!=0 && (field & Bitfield8Utils.BORDER_D) == 0) {
+            shiftDown();
+            dy++;
+        }
+        while (field!=0 && (field & Bitfield8Utils.BORDER_L) == 0) {
+            shiftLeft();
+            dx++;
         }
         //--- map
         short field4 = Bitfield4Utils.map8x8(field);

@@ -157,8 +157,6 @@ public class Bitfield {
                 }
             }
         }
-
-
         return this;
     }
 
@@ -188,20 +186,20 @@ public class Bitfield {
         for (Bitfield8x8[] xfields : fields) {
             if(xfields!=null) {
                 for (Bitfield8x8 yfields : xfields) {
-                    if (yfields!=null && yfields.isEmpty()){
-                        return true;
+                    if (yfields!=null && (!yfields.isEmpty())){
+                        return false;
                     }
                 }
             }
         }
-        return false;
+        return true;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("---- Bitfield --------------------------------------------\n");
-        for (int y = 0; y < SIZE*8; y++) {
+        for (int y = SIZE*8-1; y >0; y--) {
             for (int x = 0; x < SIZE*8; x++) {
                 builder.append(isSet(x,y) ? "X" : ".");
             }

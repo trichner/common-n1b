@@ -89,6 +89,8 @@ public class Bitfield {
 
         //---- grow area
         Bitfield8x8 field8x8 = new Bitfield8x8();
+
+        offsetX -= 4;
         grow(field8x8,4,0,offsetX);
         Bitfield4x4 cutout = field8x8.reduce();
 
